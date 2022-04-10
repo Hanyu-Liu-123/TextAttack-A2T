@@ -63,6 +63,9 @@ def main(args):
         raise ValueError(f"Unknown dataset {args.dataset}")
     dataset_config = DATASET_CONFIGS[args.dataset]
 
+    dataset = datasets.load_dataset("imdb", split="train")
+
+    """
     if "local_path" in dataset_config:
         dataset = datasets.load_dataset(
             "csv",
@@ -71,6 +74,7 @@ def main(args):
         )["train"]
     else:
         dataset = datasets.load_dataset(dataset_config["remote_name"], split="train")
+    """
 
     augmented_text = []
     augmented_label = []
